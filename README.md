@@ -375,17 +375,13 @@ Other Style Guides
     [1, 2, 3].map(x => x + 1);
 
     // bad
-    const flat = {};
     [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
       const flatten = memo.concat(item);
-      flat[index] = memo.concat(item);
     });
 
     // good
-    const flat = {};
-    [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
+       [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
       const flatten = memo.concat(item);
-      flat[index] = flatten;
       return flatten;
     });
 
@@ -399,7 +395,7 @@ Other Style Guides
       }
     });
 
-    // good
+    // good - use a 'default' return statement
     inbox.filter((msg) => {
       const { subject, author } = msg;
       if (subject === 'Mockingbird') {
@@ -476,6 +472,7 @@ Other Style Guides
     }
 
     // the caller selects only the data they need
+    // the name of the destructured variables should be the same as the ones returned by the function
     const { left, top } = processInput(input);
     ```
 
@@ -496,7 +493,7 @@ Other Style Guides
     ```
 
   <a name="strings--line-length"></a><a name="6.2"></a>
-  - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should be written across multiple lines using string concatenation.
+  - [6.2](#strings--line-length) Strings that cause the line to go over 80 characters should be written across multiple lines using string concatenation.
 
   <a name="strings--concat-perf"></a><a name="6.3"></a>
   - [6.3](#strings--concat-perf) Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
