@@ -775,6 +775,26 @@ Other Style Guides
     }
     ```
 
+  <a name="functions--mutate-params"></a><a name="7.14"></a>
+  - [7.14](#functions--default-value-destructuring) Always use a default value for an argument when destructuring it.
+
+    > Why? Destructuring an undefined/null argument will result in an error.
+
+    ```javascript
+    
+    // bad
+    function getFullName({ firstName, lastName }) {
+      return `${firstName} ${lastName}`;
+    }
+    
+    // good, defaults to an empty object
+    function getFullName({ firstName, lastName } = {}) {
+      return `${firstName} ${lastName}`;
+    }
+    ```  
+    
+    
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Arrow Functions
