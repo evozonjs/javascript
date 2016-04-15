@@ -864,18 +864,15 @@ Other Style Guides
     ```
 
   <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
-  - [8.4](#arrows--one-arg-parens) If your function takes a single argument and doesn’t use braces, omit the parentheses. Otherwise, always include parentheses around arguments. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
+  - [8.4](#arrows--one-arg-parens) Always include parentheses around arguments. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
 
     > Why? Less visual clutter.
 
     ```js
     // bad
-    [1, 2, 3].map((x) => x * x);
-
-    // good
     [1, 2, 3].map(x => x * x);
 
-    // good
+    // bad
     [1, 2, 3].map(number => (
       `A long string with the ${number}. It’s so long that we’ve broken it ` +
       'over multiple lines!'
@@ -886,6 +883,9 @@ Other Style Guides
       const y = x + 1;
       return x * y;
     });
+    
+    // good
+    [1, 2, 3].map((x) => x * x);
 
     // good
     [1, 2, 3].map((x) => {
