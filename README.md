@@ -1028,7 +1028,7 @@ Other Style Guides
   - [9.5](#constructors--no-useless) Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary. eslint: [`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor)
 
     ```javascript
-    // bad
+    // bad - constructor does nothing
     class Jedi {
       constructor() {}
 
@@ -1037,7 +1037,7 @@ Other Style Guides
       }
     }
 
-    // bad
+    // bad - constructor just passes the arguments
     class Rey extends Jedi {
       constructor(...args) {
         super(...args);
@@ -1102,16 +1102,16 @@ Other Style Guides
     ```
 
   <a name="modules--no-wildcard"></a><a name="10.2"></a>
-  - [10.2](#modules--no-wildcard) Do not use wildcard imports.
+  - [10.2](#modules--no-wildcard) Do not use wildcard imports unless you need all exports from that specific module.
 
-    > Why? This makes sure you have a single default export.
+    > Why? This makes sure you only import what you need from a module.
 
     ```javascript
     // bad
     import * as AirbnbStyleGuide from './AirbnbStyleGuide';
 
     // good
-    import AirbnbStyleGuide from './AirbnbStyleGuide';
+    import { importA, importB } from './AirbnbStyleGuide';
     ```
 
   <a name="modules--no-export-from-import"></a><a name="10.3"></a>
@@ -1229,14 +1229,18 @@ Other Style Guides
 ## Variables
 
   <a name="variables--const"></a><a name="13.1"></a>
-  - [13.1](#variables--const) Always use `const` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+  - [13.1](#variables--const) Always use `const` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. If you need a primitive that will change its value, use `let`.
 
     ```javascript
     // bad
     superPower = new SuperPower();
+    // bad
+    var primitiveValue = 0; 
 
     // good
     const superPower = new SuperPower();
+    // good
+    let primitiveValue = 0; 
     ```
 
   <a name="variables--one-const"></a><a name="13.2"></a>
