@@ -1314,12 +1314,12 @@ Other Style Guides
       return name;
     }
 
-    // good
+    // good 
     function checkName(hasName) {
       if (hasName === 'test') {
         return false;
       }
-
+      // we only need to call the function if hasName !== 'test'
       const name = getName();
 
       if (name === 'test') {
@@ -1584,19 +1584,14 @@ Other Style Guides
     if (test)
       return false;
 
-    // good
+    // bad
     if (test) return false;
-
-    // good
-    if (test) {
-      return false;
-    }
-
+    
     // bad
     function foo() { return false; }
 
     // good
-    function bar() {
+    if (test) {
       return false;
     }
     ```
@@ -2019,7 +2014,8 @@ Other Style Guides
     ```
 
   <a name="whitespace--in-braces"></a><a name="18.11"></a>
-  - [18.11](#whitespace--in-braces) Add spaces inside curly braces. eslint: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html) jscs: [`disallowSpacesInsideObjectBrackets`](http://jscs.info/rule/disallowSpacesInsideObjectBrackets)
+  - [18.11](#whitespace--in-braces) Add spaces inside curly braces, for object declaration and destructuring
+  - eslint: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html) jscs: [`disallowSpacesInsideObjectBrackets`](http://jscs.info/rule/disallowSpacesInsideObjectBrackets)
 
     ```javascript
     // bad
@@ -2027,6 +2023,18 @@ Other Style Guides
 
     // good
     const foo = { clark: 'kent' };
+    
+    // bad
+    const {foo, bar} = fooBar;
+
+    // good
+    const { foo, bar } = fooBar;
+    
+    // bad
+    function({foo, bar}) {...}
+
+    // good
+    function({ foo, bar }) {...}
     ```
 
   <a name="whitespace--max-len"></a><a name="18.12"></a>
@@ -2060,7 +2068,8 @@ Other Style Guides
 ## Commas
 
 <a name="commas--leading-trailing"></a><a name="19.1"></a>
-  - [19.1](#commas--leading-trailing) Leading commas: **Nope.** eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
+  - [19.1](#commas--leading-trailing) Leading commas: **Nope.** Use coma after last element if they are on multiple lines.
+  - eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
 
     ```javascript
     // bad
@@ -2231,7 +2240,7 @@ Other Style Guides
     ```
 
   <a name="coercion--bitwise"></a><a name="21.5"></a>
-  - [21.5](#coercion--bitwise) **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
+  - [21.5](#coercion--bitwise) **Note:** Use it only if you know what you're doing! Be careful when using bitshift operations. Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
 
     ```javascript
     2147483647 >> 0 //=> 2147483647
