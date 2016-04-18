@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/airbnb/javascript.git"
+    "url": "https://github.com/evozonjs/javascript.git"
   },
   "keywords": [
     "style guide",
@@ -22,7 +22,7 @@
   "author": "Harrison Shoff <hi@hshoff.com> (https://twitter.com/hshoff)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/airbnb/javascript/issues"
+    "url": "https://github.com/evozonjs/javascript/issues"
   },
-  "homepage": "https://github.com/airbnb/javascript"
+  "homepage": "https://github.com/evozonjs/javascript"
 }
