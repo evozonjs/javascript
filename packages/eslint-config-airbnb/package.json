@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/airbnb/javascript"
+    "url": "https://github.com/evozonjs/javascript"
   },
   "keywords": [
     "eslint",
@@ -38,9 +38,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/airbnb/javascript/issues"
+    "url": "https://github.com/evozonjs/javascript/issues"
   },
-  "homepage": "https://github.com/airbnb/javascript",
+  "homepage": "https://github.com/evozonjs/javascript",
   "devDependencies": {
     "babel-tape-runner": "^1.3.1",
     "eslint": "^2.7.0",
