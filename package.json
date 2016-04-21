@@ -1,7 +1,7 @@
 {
-  "name": "airbnb-style",
-  "version": "2.0.0",
-  "description": "A mostly reasonable approach to JavaScript.",
+  "name": "evozonjs-style",
+  "version": "1.0.0",
+  "description": "A mostly reasonable approach to JavaScript forked from airbnb-style",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "publish-all": "npm publish && cd ./packages/eslint-config-airbnb && npm publish"
@@ -20,6 +20,16 @@
     "jsx"
   ],
   "author": "Harrison Shoff <hi@hshoff.com> (https://twitter.com/hshoff)",
+  "contributors": [
+    {
+      "name": "Alex Pausan",
+      "url": "https://github.com/alexpausan"
+    },
+    {
+      "name": "Robert Richter",
+      "url": "https://github.com/robi-richter"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/evozonjs/javascript/issues"
